@@ -19,7 +19,7 @@ public class Config {
     @Bean
     public DataSource dataSource() {
         DataSourceBuilder builder = DataSourceBuilder.create();
-        builder.url("jdbc:sqlserver://192.168.10.136:1433;database=master;trustServerCertificate=true");
+        builder.url("jdbc:sqlserver://192.168.10.136:1433;database=Northwind;trustServerCertificate=true");
         builder.username(usr);
         builder.password(crs);
         return builder.build();

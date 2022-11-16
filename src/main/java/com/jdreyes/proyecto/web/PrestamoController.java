@@ -2,6 +2,7 @@ package com.jdreyes.proyecto.web;
 
 import com.jdreyes.proyecto.modelo.TipoReestructura;
 import com.jdreyes.proyecto.servicio.PrestamoService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class PrestamoController {
      * @return lista de tipos de reestructuraciones.
      */
     @GetMapping("/tipo/all")
+    @ApiOperation("Obtiene tipos de reestructuracion")
     public List<TipoReestructura> obtenerTiposReestructura() {
         return prestamoService.obtenerTiposReestructura();
     }

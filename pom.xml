@@ -26,6 +26,20 @@
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.7.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>2.7.5</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
@@ -58,8 +72,10 @@
 			<properties>
 <!--				<activatedProperties>desarrollo</activatedProperties>-->
 				<spring.profiles.active>desarrollo</spring.profiles.active>
-				<usr>${usuario}</usr>
-				<cls>${clave}</cls>
+<!--				<usr>${usuario}</usr>-->
+<!--				<cls>${clave}</cls>-->
+<!--				<usrapi>${usrapi}</usrapi>-->
+<!--				<clsapi>${clsapi}</clsapi>-->
 			</properties>
 		</profile>
 		<profile>
@@ -67,8 +83,10 @@
 			<properties>
 <!--				<activatedProperties>produccion</activatedProperties>-->
 				<spring.profiles.active>produccion</spring.profiles.active>
-				<usr>${usuario}</usr>
-				<cls>${clave}</cls>
+<!--				<usr>${usuario}</usr>-->
+<!--				<cls>${clave}</cls>-->
+<!--				<usrapi>${usrapi}</usrapi>-->
+<!--				<clsapi>${clsapi}</clsapi>-->
 			</properties>
 		</profile>
 	</profiles>
