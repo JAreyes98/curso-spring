@@ -12,17 +12,11 @@ import javax.persistence.*;
 @Setter
 @Table(name = "Suppliers")
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idProveedor")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Proveedor {
 
-    @Id
-    @Column(name = "SupplierID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idProveedor;
-
-    @Id
-    @Column(name = "CompanyName")
-    private String nombreCompanhia;
+    @EmbeddedId
+    private ProveedorPk id;
 
     @Column(name = "ContactName")
     private String nombreContacto;
@@ -33,13 +27,12 @@ public class Proveedor {
     @Column(name = "City")
     private String ciudad;
 
+
+
     @ManyToOne
-    @JoinColumn(name = "Region", referencedColumnName = "RegionID")
+    @JoinColumn(name = "Region", referencedColumnName = "RegionDescription")
     private Region region;
 
-    @Id
-    @Column(name = "PostalCode")
-    private String codigoPostal;
 
     @Column(name = "Country")
     private String pais;

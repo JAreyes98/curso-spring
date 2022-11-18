@@ -54,19 +54,20 @@ public class ProveedorDAOImpl implements ProveedorDAO {
     }
 
     public Proveedor nuevaProveedor(Proveedor pro) {
-        Map<String, Object> map = new HashMap<>();
-        map.put("CompanyName", pro.getNombreCompanhia());
-        map.put("ContactName", pro.getNombreContacto());
-        map.put("Address", pro.getDireccion());
-        map.put("City", pro.getCiudad());
-        map.put("Region", pro.getRegion());
-        map.put("Country", pro.getPais());
-        map.put("Phone", pro.getTelefono());
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("CompanyName", pro.getNombreCompanhia());
+//        map.put("ContactName", pro.getNombreContacto());
+//        map.put("Address", pro.getDireccion());
+//        map.put("City", pro.getCiudad());
+//        map.put("Region", pro.getRegion());
+//        map.put("Country", pro.getPais());
+//        map.put("Phone", pro.getTelefono());
+//
+//        SimpleJdbcInsert insert = new SimpleJdbcInsert(template).withTableName("Suppliers")
+//                        .usingGeneratedKeyColumns("SupplierID");
+//        Number key = insert.executeAndReturnKey(map);
+//        pro.setIdProveedor(key.intValue());
 
-        SimpleJdbcInsert insert = new SimpleJdbcInsert(template).withTableName("Suppliers")
-                        .usingGeneratedKeyColumns("SupplierID");
-        Number key = insert.executeAndReturnKey(map);
-        pro.setIdProveedor(key.intValue());
         return pro;
     }
 }
