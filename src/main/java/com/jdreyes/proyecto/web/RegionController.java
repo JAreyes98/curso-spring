@@ -1,19 +1,19 @@
 package com.jdreyes.proyecto.web;
 
 import com.jdreyes.proyecto.modelo.Region;
+import com.jdreyes.proyecto.modelo.Territorio;
 import com.jdreyes.proyecto.servicio.RegionService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/region")
 public class RegionController {
 
     private final RegionService service;
@@ -27,6 +27,12 @@ public class RegionController {
     @ApiOperation("Obtiene todos los registros de Region")
     public ResponseEntity<List<Region>> obtenerTodo() {
         return ResponseEntity.ok(service.obtenerRegiones());
+    }
+
+    @GetMapping("/territories/{id}")
+    @ApiOperation("Obtiene todos los registros de Region")
+    public ResponseEntity<List<Territorio>> obtenerTerritoriosPorRegion(@PathVariable Integer id) {
+        return ResponseEntity.ok(service.buscarTerritoriosPorRegion(id));
     }
 
     @GetMapping("/{id}")

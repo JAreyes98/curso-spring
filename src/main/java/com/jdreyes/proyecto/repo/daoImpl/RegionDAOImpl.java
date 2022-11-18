@@ -1,6 +1,7 @@
 package com.jdreyes.proyecto.repo.daoImpl;
 
 import com.jdreyes.proyecto.modelo.Region;
+import com.jdreyes.proyecto.repo.crud.RegionCRUD;
 import com.jdreyes.proyecto.repo.dao.RegionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -11,33 +12,36 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class RegionDAOImpl implements RegionDAO {
 
     private final JdbcTemplate template;
-
+    private final RegionCRUD regionCRUD;
     @Autowired
-    public RegionDAOImpl(JdbcTemplate template) {
+    public RegionDAOImpl(JdbcTemplate template, RegionCRUD regionCRUD) {
         this.template = template;
+        this.regionCRUD = regionCRUD;
     }
 
     public List<Region> obtenerRegiones() {
-        return template.query("select " +
-                        "RegionID as idRegion" +
-                        ", RegionDescription as descRegion" +
-                        " from Region"
-                , BeanPropertyRowMapper.newInstance(Region.class));
+//        return template.query("select " +
+//                        "RegionID as idRegion" +
+//                        ", RegionDescription as descRegion" +
+//                        " from Region"
+//                , BeanPropertyRowMapper.newInstance(Region.class));
+        return (List<Region>) regionCRUD.findAll();
     }
 
-    public List<Region> obtenerRegionById(Integer id) {
-        return template.query("select " +
-                        "RegionID as idRegion" +
-                        ", RegionDescription as descRegion where RegionID=?" +
-                        " from Region"
-                , BeanPropertyRowMapper.newInstance(Region.class)
-                , id);
+    public Optional<Region> obtenerRegionById(Integer id) {
+//        return template.query("select " +
+//                        "RegionID as idRegion" +
+//                        ", RegionDescription as descRegion where RegionID=?" +
+//                        " from Region"
+//                , BeanPropertyRowMapper.newInstance(Region.class)
+//                , id);
+        return regionCRUD.findById(id);
     }
 
     public Region nuevaRegion(Region region) {
